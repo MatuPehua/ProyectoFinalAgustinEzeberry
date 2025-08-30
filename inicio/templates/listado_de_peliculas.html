@@ -1,26 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <a href={% url "inicio" %}>Inicio</a>
-        <a href={% url "crear_pelicula" %}>Crear Pelicula</a>
-        <a href={% url "listado_de_peliculas" %}>Listado de Peliculas</a>
-    </nav>
-    <h1>Listado de Peliculas</h1>
-    
-    {% if pelicula %}
+{% extends "base.html" %}
+{% block texto_h1 %} Listado de Peliculas {% endblock texto_h1 %}
+
+
+{% block contenido %} 
+    <form action="" method="GET">
+        
+        {{formulario}}
+          
+        <input type="submit" value="Buscar">
+
+    </form>
+
+    {% if pelicula_buscada %}
         <ul>
-            {% for pelis in pelicula %}
-                <li>{{pelis}}</li>
+            {% for pelis in pelicula_buscada %}
+                <li>
+                    {{pelis}}
+                    <a href={% url "detalle_pelicula" pelis.id %}>Detalle</a>
+                    <a href={% url "actualizar_pelicula" pelis.id %}>Actualizar</a>
+                    <a href={% url "borrar_pelicula" pelis.id %}>Borrar</a>
+                </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>No hay datos</p>         
     {% endif %}
-</body>
-</html>
+{% endblock contenido %}        
+    

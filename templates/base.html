@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "crear_pelicula" %}>Crear Pelicula</a>
+        <a href={% url "listado_de_peliculas" %}>Listado de Peliculas</a>
+        <a href={% url "iniciar_sesion" %}>Iniciar Sesion</a>
+    </nav>
+    <h1>{% block texto_h1 %} Titulo {% endblock texto_h1 %}</h1>
+    {% block contenido %} {% endblock contenido %}
+    
+</body>
+</html>

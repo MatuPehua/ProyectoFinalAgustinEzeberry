@@ -1,15 +1,14 @@
 {% extends "base.html" %}
-{% block texto_h1 %} Guardar Pelicula {% endblock texto_h1 %}
+{% block texto_h1 %} Actualizar Pelicula {% endblock texto_h1 %}
 
 
 {% block contenido %} 
     <form action="" method="POST">
         {% csrf_token %}
-        {{formulario}}
+        {{form}}
           
-        <input type="submit" value="Crear">
+        <input type="submit" value="Actualizar">
 
     </form>
 {% endblock contenido %}        
     
-

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block texto_h1 %} Pelicula: {{pelicula}} {% endblock texto_h1 %}
+
+
+{% block contenido %} 
+<ul>
+    <li> Pelicula: {{pelicula.pelicula}} </li>
+    <li> Genero: {{pelicula.genero}} </li>
+    <li> Pais: {{pelicula.pais}} </li>
+    <li> Año: {{pelicula.anio}} </li>
+    <li> Elenco: {{pelicula.elenco}} </li>
+    <li> Clasificacion: {{pelicula.clasificacion}} </li>
+</ul>
+{% endblock contenido %}        
+    
