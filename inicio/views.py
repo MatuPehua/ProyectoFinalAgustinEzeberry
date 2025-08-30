@@ -18,7 +18,7 @@ def inicio(request):
 def crear_pelicula(request):
     print(request.POST)
     if request.method == "POST":
-        formulario=FormularioCrearPelicula(request.POST)
+        formulario = FormularioCrearPelicula(request.POST)
         if formulario.is_valid():
             info = formulario.cleaned_data
             
@@ -30,6 +30,6 @@ def crear_pelicula(request):
     return render(request, 'crear_pelicula_v2.html', {'formulario': formulario})
 
 def listado_de_peliculas(request):
-    peliculas = Peliculas.object.all()
+    peliculas = Peliculas.objects.all()
     
-    return render(request, 'listado_de-peliculas.html', {'peliculas': peliculas})
+    return render(request, 'listado_de_peliculas.html', {'pelicula': peliculas})
