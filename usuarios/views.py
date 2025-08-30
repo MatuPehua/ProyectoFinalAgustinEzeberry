@@ -14,4 +14,4 @@ def iniciar_sesion(request):
     else:
         formulario = AuthenticationForm()
 
-    return render(request, 'iniciar_sesion.html', {'formulario': formaulario})
+    return render(request, 'iniciar_sesion.html', {'formulario': formulario})
