@@ -6,12 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "crear_pelicula" %}>Crear Pelicula</a>
+        <a href={% url "listado_de_peliculas" %}>Listado de Peliculas</a>
+    </nav>
     <h1>Listado de Peliculas</h1>
     
     {% if peliculas %}
         <ul>
-            {% for pelicula in listado_de_peliculas %}
-                <li>{{pelicula}}</li>
+            {% for pelis in peliculas %}
+                <li>{{pelis}}</li>
             {% endfor %}
         </ul>
     {% else %}

@@ -22,14 +22,14 @@ def crear_pelicula(request):
         if formulario.is_valid():
             info = formulario.cleaned_data
             
-            peliculas = Peliculas(pelicula=info.get('pelicula'), genero=info.get('genero'), pais=info('pais'), anio=info.get('anio'), elenco=info.get('elenco'), clasificacion=info.get('clasificacion'))
-            peliculas.save()
+            pelis = Peliculas(pelicula=info.get('pelicula'), genero=info.get('genero'), pais=info('pais'), anio=info.get('anio'), elenco=info.get('elenco'), clasificacion=info.get('clasificacion'))
+            pelis.save()
             return redirect('listado_de_peliculas')
     else:
         formulario = FormularioCrearPelicula()    
     return render(request, 'crear_pelicula_v2.html', {'formulario': formulario})
 
 def listado_de_peliculas(request):
-    peliculas = Peliculas,object.all()
+    peliculas = Peliculas.object.all()
     
-    return render(request, 'listado_de-peliculas.html', {'listado_de_peliculas': peliculas})
+    return render(request, 'listado_de-peliculas.html', {'peliculas': peliculas})
