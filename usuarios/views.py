@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login
+from usuarios.forms import Registro
 
 def iniciar_sesion(request):
     
@@ -15,3 +16,14 @@ def iniciar_sesion(request):
         formulario = AuthenticationForm()
 
     return render(request, 'iniciar_sesion.html', {'formulario': formulario})
+
+def registro(request):
+    if request == "POST":
+        formulario = Registro(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect("iniciar_sesion")
+    else:
+        formulario = Registro()
+
+    return render(request, 'registro.html', {'formulario': formulario})
